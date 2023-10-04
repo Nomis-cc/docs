@@ -2,6 +2,10 @@ import { useRouter } from "next/router";
 
 import type { DocsThemeConfig } from "nextra-theme-docs";
 
+// TODO: Replace with current URL
+
+const baseUrl = "https://nomis-docs.vercel.app";
+
 const logo = (
   <div
     style={{
@@ -23,7 +27,7 @@ const logo = (
 
 const head = () => {
   const description = "Nomis Protocol Documentation";
-  const image = "/assets/nomis-blueprint-cover.svg";
+  const image = `${baseUrl}/assets/nomis-blueprint-cover.svg`;
   const keywords = ["Nomis", "Protocol", "Documentation"];
   const title = "Nomis Docs";
 
