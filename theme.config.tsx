@@ -21,11 +21,41 @@ const logo = (
   </div>
 );
 
-const head = (
-  <>
-    <link rel="icon" href="/app/favicon.svg" />
-  </>
-);
+const head = () => {
+  const description = "Nomis Protocol Documentation";
+  const image = "/assets/nomis-blueprint-cover.svg";
+  const keywords = ["Nomis", "Protocol", "Documentation"];
+  const title = "Nomis Protocol Documentation";
+
+  return (
+    <>
+      <link rel="icon" href="/app/favicon.svg" />
+      <meta name="author" content="Nomis Labs" />
+
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords?.join(", ")} />
+
+      <meta property="og:image" content={image} />
+      <meta property="twitter:image" content={image} />
+      <meta name="twitter:card" content="summary_large_image" />
+
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:type" content="website" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+
+      <meta name="x:card" content="summary_large_image" />
+      <meta name="x:title" content={title} />
+      <meta name="x:description" content={description} />
+      <meta name="x:image" content={image} />
+    </>
+  );
+};
 
 const footer = {
   text: (
