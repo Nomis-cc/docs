@@ -25,7 +25,7 @@ const head = () => {
   const description = "Nomis Protocol Documentation";
   const image = "/assets/nomis-blueprint-cover.svg";
   const keywords = ["Nomis", "Protocol", "Documentation"];
-  const title = "Nomis Protocol Documentation";
+  const title = "Nomis Docs";
 
   return (
     <>
