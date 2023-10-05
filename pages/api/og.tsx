@@ -81,6 +81,7 @@ const styles: { [key: string]: CSSProperties } = {
     color: colors.accent,
     lineHeight: "1em",
     fontWeight: "bold",
+    letterSpacing: "-0.03em",
   },
 
   subtitle: {
@@ -88,6 +89,7 @@ const styles: { [key: string]: CSSProperties } = {
     fontSize: rem(1.5),
     color: colors.hidden,
     lineHeight: "1em",
+    letterSpacing: "-0.02em",
   },
 };
 

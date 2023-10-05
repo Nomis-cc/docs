@@ -3,8 +3,7 @@ import { useConfig } from "nextra-theme-docs";
 
 import type { DocsThemeConfig } from "nextra-theme-docs";
 
-// TODO: Replace with current URL
-const baseUrl = "https://nomis-docs.vercel.app";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const logo = (
   <div
@@ -29,7 +28,7 @@ const head = () => {
   const { asPath } = useRouter();
 
   const description = "Nomis Protocol Documentation";
-  const subtitle = asPath.split("/").at(-1)?.replace(/-/g, " ");
+  const subtitle = asPath.split("/").at(-2)?.replace(/-/g, " ");
   const capitalizedSubtitle =
     subtitle?.charAt(0).toUpperCase() + subtitle?.slice(1);
   const image = `${baseUrl}/api/og?title=${title}${
