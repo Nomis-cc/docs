@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
+import { useConfig } from "nextra-theme-docs";
 
 import type { DocsThemeConfig } from "nextra-theme-docs";
 
 // TODO: Replace with current URL
-
 const baseUrl = "https://nomis-docs.vercel.app";
 
 const logo = (
@@ -18,7 +18,6 @@ const logo = (
       src="/logos/nomis-blueprint.svg"
       style={{
         inlineSize: "1.5rem",
-        borderRadius: "0.5rem",
       }}
     />
     <span style={{ fontWeight: 500 }}>Nomis Labs</span>
@@ -26,22 +25,28 @@ const logo = (
 );
 
 const head = () => {
+  const { title } = useConfig();
+  const { asPath } = useRouter();
+
   const description = "Nomis Protocol Documentation";
-  const image = `${baseUrl}/assets/nomis-blueprint-cover.svg`;
+  const subtitle = asPath.split("/").at(-1)?.replace(/-/g, " ");
+  const capitalizedSubtitle =
+    subtitle?.charAt(0).toUpperCase() + subtitle?.slice(1);
+  const image = `${baseUrl}/api/og?title=${title}${
+    subtitle ? `&subtitle=${capitalizedSubtitle}` : ""
+  }`;
   const keywords = ["Nomis", "Protocol", "Documentation"];
-  const title = "Nomis Docs";
+
+  const isMainPage = asPath === "/";
 
   return (
     <>
       <link rel="icon" href="/app/favicon.svg" />
       <meta name="author" content="Nomis Labs" />
+      <title>{isMainPage ? "Nomis Docs" : `${title} @ Nomis Docs`}</title>
 
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords?.join(", ")} />
-
-      <meta property="og:image" content={image} />
-      <meta property="twitter:image" content={image} />
-      <meta name="twitter:card" content="summary_large_image" />
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -117,15 +122,24 @@ const config: DocsThemeConfig = {
 
   docsRepositoryBase: "https://github.com/nomis-cc/docs",
 
-  useNextSeoProps: () => {
-    const { asPath } = useRouter();
-    const isMainPage = asPath === "/";
+  // useNextSeoProps: () => {
+  //   const { asPath } = useRouter();
+  //   const isMainPage = asPath === "/";
 
-    return {
-      titleTemplate: isMainPage ? "Nomis Docs" : "%s | Nomis Labs",
-      defaultTitle: "Nomis Labs",
-    };
-  },
+  //   const subtitle = asPath.split("/").at(-1);
+
+  //   return {
+  //     titleTemplate: isMainPage ? "Nomis Docs" : "%s | Nomis Labs",
+  //     defaultTitle: "Nomis Labs",
+  //     twitter: {
+  //       cardType: "summary_large_image",
+  //       handle: "@0xNomis",
+  //     },
+  //     openGraph: {
+  //       images: [{ url: `${baseUrl}/api/og?title=%s%${subtitle ?? ""}` }],
+  //     },
+  //   };
+  // },
 };
 
 export default config;
