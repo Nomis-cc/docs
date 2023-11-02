@@ -7,19 +7,14 @@ const withNextra = nextra({
   staticImage: true,
 });
 
+/** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  redirects() {
-    return [
-      {
-        source: "/docs/create-wagmi",
-        destination: "/cli/create-wagmi",
-        permanent: true,
-      },
-    ];
-  },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
   },
 };
 
