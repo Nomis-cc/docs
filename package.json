@@ -1,13 +1,14 @@
 {
-  "name": "test-docs",
+  "name": "nomis-docs",
   "version": "0.0.1",
   "description": "",
-  "author": "shutock.eth <yo@shutock.com>",
+  "author": "0xNomis.eth",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
+  "type": "module",
   "dependencies": {
     "next": "13.5.4",
     "nextra": "2.13.1",

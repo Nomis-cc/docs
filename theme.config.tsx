@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
 import { useConfig } from "nextra-theme-docs";
 
+import packageJSON from "./package.json";
+
 import type { DocsThemeConfig } from "nextra-theme-docs";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-const logo = (
+const logo: DocsThemeConfig["logo"] = (
   <div
     style={{
       display: "flex",
@@ -23,7 +25,7 @@ const logo = (
   </div>
 );
 
-const head = () => {
+const head: DocsThemeConfig["head"] = () => {
   const { title } = useConfig();
   const { asPath } = useRouter();
 
@@ -65,7 +67,7 @@ const head = () => {
   );
 };
 
-const footer = {
+const footer: DocsThemeConfig["footer"] = {
   text: (
     <div
       style={{
@@ -81,11 +83,13 @@ const footer = {
       </p>
 
       <p>2023 © Nomis. All rights reserved.</p>
+
+      <p>Docs version: {packageJSON.version}.</p>
     </div>
   ),
 };
 
-const chat = {
+const chat: DocsThemeConfig["chat"] = {
   link: "https://discord.com/nomis",
   icon: (
     <img
@@ -117,28 +121,10 @@ const config: DocsThemeConfig = {
 
   sidebar: {
     toggleButton: true,
+    defaultMenuCollapseLevel: 1,
   },
 
   docsRepositoryBase: "https://github.com/nomis-cc/docs",
-
-  // useNextSeoProps: () => {
-  //   const { asPath } = useRouter();
-  //   const isMainPage = asPath === "/";
-
-  //   const subtitle = asPath.split("/").at(-1);
-
-  //   return {
-  //     titleTemplate: isMainPage ? "Nomis Docs" : "%s | Nomis Labs",
-  //     defaultTitle: "Nomis Labs",
-  //     twitter: {
-  //       cardType: "summary_large_image",
-  //       handle: "@0xNomis",
-  //     },
-  //     openGraph: {
-  //       images: [{ url: `${baseUrl}/api/og?title=%s%${subtitle ?? ""}` }],
-  //     },
-  //   };
-  // },
 };
 
 export default config;
