@@ -9,13 +9,14 @@ const withNextra = nextra({
 
 /** @type {import('next').NextConfig} */
 const config = {
-  // reactStrictMode: true,
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
-  // images: {
-  //   unoptimized: true,
-  // },
+  reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
+  output: "standalone",
 };
 
 export default withNextra(config);

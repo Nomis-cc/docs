@@ -1,0 +1,29 @@
+name: Docker Image CD Manual
+on:
+  workflow_dispatch:
+    inputs:
+      refToBuild:
+        description: 'Branch, tag or commit SHA1 to build'
+        required: true
+        type: string
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.refToBuild }}
+          
+      - uses: docker/login-action@v2.1.0     
+        name: Docker Login
+        with:
+          # Server address of Docker registry. If not set then will default to Docker Hub
+          registry: registry.nomis.cc
+          # Username used to log against the Docker registry
+          username: nomis
+          # Password or personal access token used to log against the Docker registry
+          password: a8hK09n1mk7
+          
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag registry.nomis.cc/nomis/docs:${{ github.ref_name }} && docker push registry.nomis.cc/nomis/docs:${{ github.ref_name }}
