@@ -1,4 +1,70 @@
 {
-  "index": "Introduction",
-  "folder": "Folder"
+  "developers": {
+    "display": "hidden"
+  },
+
+  "support-link": {
+    "title": "Support",
+    "href": "/support",
+    "newWindow": true,
+    "type": "page"
+  },
+
+  "-- introduction": {
+    "type": "separator",
+    "title": "Introduction"
+  },
+
+  "reputation-level": "",
+  "index": "Nomis Labs",
+  "overview": "",
+
+  "-- for users": {
+    "type": "separator",
+    "title": "For Users"
+  },
+
+  "how-to-mint-score": "",
+  "how-to-claim-discord-roles": "",
+  "scorefront": "ScoreFront",
+  "leaderboard": "Leaderboard (Global Ranking)",
+  "referral-program": "",
+  "ambassador-program": "",
+
+  "-- for developers": {
+    "type": "separator",
+    "title": "For Developers"
+  },
+
+  "sdk": "SDK",
+  "subgraphs": "",
+  "rest": "REST API",
+  "smart-contracts": "",
+
+  "-- community": {
+    "type": "separator",
+    "title": "Community"
+  },
+
+  "quests-and-campaigns": "Quests & Campaigns",
+  "discord-link": {
+    "title": "Discord",
+    "href": "#",
+    "newWindow": true
+  },
+  "telegram-link": {
+    "title": "Telegram",
+    "href": "#",
+    "newWindow": true
+  },
+
+  "-- other": {
+    "type": "separator",
+    "title": "Other"
+  },
+
+  "roadmap": "",
+  "media-kit": "",
+  "faq": "FAQs",
+  "support": ""
 }
